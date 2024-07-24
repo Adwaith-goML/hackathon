@@ -2,10 +2,13 @@ import streamlit as st
 import requests
 from supabase import create_client, Client
 import json
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Initialize Supabase client
-supabase_url = "https://sethnwkizvrpascsfwod.supabase.co"
-supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNldGhud2tpenZycGFzY3Nmd29kIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcyMTgxNTY4NiwiZXhwIjoyMDM3MzkxNjg2fQ.DUW73jSKClpOZLLYg-49UWvH1VavoBJc_dO47jE07kw"
+supabase_url = os.getenv('supabase_url')
+supabase_key = os.getenv('supabase_key')
 supabase: Client = create_client(supabase_url, supabase_key)
 
 # URL for sending emails and posting on LinkedIn
